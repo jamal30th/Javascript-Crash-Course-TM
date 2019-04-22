@@ -1,11 +1,22 @@
-const ul = document.querySelector('.items')
-// ul.remove();
-// ul.lastElementChild.remove();
-// ul.firstElementChild.textContent='Hello'
-ul.children[1].innerHTML = 'Brad'
-ul.children[0].innerText = 'Andrew Russel'
-ul.children[2].textContent = 'mS D'
-ul.lastElementChild.innerHTML = '<h1>Rishab Pant</h1>'
+const myForm = document.querySelector('#my-form');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
 
-const btn = document.querySelector('.btn');
-btn.style.background = 'red'
+myForm.addEventListener('submit', onsubmit);
+function onsubmit(e){
+    e.preventDefault();
+    if (inputName.value ==='' || inputEmail.value==='' ) {
+        msg.innerHTML = 'Please enter all fields';
+        setTimeout(() => msg.remove(), 3000);
+    } else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${inputName.value}: ${inputEmail.value}`));
+        userList.appendChild('li')
+
+        inputName.value = '';
+        inputEmail.value = '';
+
+}
+}
